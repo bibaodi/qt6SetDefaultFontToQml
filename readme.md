@@ -14,6 +14,10 @@ if the font file in system wide path, then direct set is valid, otherwise follow
 ## Env:
 - qt6.5;
 - debian12;
+## Results
+
+- ![set](./result-images/Font-set-result.png)
+- ![noset](./result-images/Font-noset-result.png)
 
 ## Refs:
 ref:[Embedding Fonts in Your Qt Application](https://amin-ahmadi.com/2016/01/07/embedding-fonts-in-your-qt-app/)
