@@ -4,6 +4,7 @@
 #include <QtQml/QQmlApplicationEngine>
 #else
 #endif
+#include "htmldocumentitem.h"
 
 #include <QFont>
 #include <QLocale>
@@ -11,9 +12,11 @@
 
 int main(int argc, char *argv[]) {
   QGuiApplication app(argc, argv);
+  qmlRegisterType<HtmlDocumentItem>("CustomItems", 1, 0, "HtmlDocumentItem");
+
   qDebug() << "default: family:" << app.font().family() << ",d:" << app.font().defaultFamily();
   QFont font("Source Han Sans CN");
-  app.setFont(font);
+  // app.setFont(font);
   qDebug() << "2default family:" << app.font().family() << ",d:" << app.font().defaultFamily();
 
   QTranslator translator;

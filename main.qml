@@ -1,4 +1,5 @@
 import QtQuick
+import CustomItems 1.0
 
 Window {
     width: 640
@@ -34,5 +35,20 @@ Window {
             font.family: customFont.name
             font.pointSize: 34
         }
+    }
+
+    HtmlDocumentItem {
+        y: 300
+        width: 400
+        height: 300
+        html: "<p>
+<span style=\"font-size: 14px;\">Frame:</span>
+<span style=\"font-size: 30px;\">45678</span>
+</p>
+<p>
+<span style=\"font-size: 14px;\">Pullback:</span>
+<span style=\"font-size: 30px;\">99234</span>mm
+</p>
+"
     }
 }

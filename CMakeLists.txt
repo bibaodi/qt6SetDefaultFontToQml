@@ -14,7 +14,8 @@ qt_add_executable(appqt6-i18n-demo
 qt_add_qml_module(appqt6-i18n-demo
     URI qt6-i18n-demo
     VERSION 1.0
-    QML_FILES main.qml 
+    QML_FILES main.qml
+    SOURCES htmldocumentitem.h htmldocumentitem.cpp
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
