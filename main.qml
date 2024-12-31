@@ -41,12 +41,12 @@ Window {
         y: 300
         width: 400
         height: 300
-        html: "<p>
+        html: "<p style=\"color:green\">>
 <span style=\"font-size: 14px;\">Frame:</span>
-<span style=\"font-size: 30px;\">45678</span>
+<span style=\"font-size: 30px;font-weight: bold;;\">45678</span>
 </p>
 <p>
-<span style=\"font-size: 14px;\">Pullback:</span>
+<span style=\"font-size: 14px;\">>Pullback:</span>
 <span style=\"font-size: 30px;\">99234</span>mm
 </p>
 "
