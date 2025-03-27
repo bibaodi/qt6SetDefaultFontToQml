@@ -5,7 +5,7 @@ project(qt6-i18n-demo VERSION 0.1 LANGUAGES CXX)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(Qt6 6.2 COMPONENTS Quick REQUIRED)
+find_package(Qt6 6.2 COMPONENTS Quick LinguistTools REQUIRED)
 
 qt_add_executable(appqt6-i18n-demo
     main.cpp
@@ -14,8 +14,17 @@ qt_add_executable(appqt6-i18n-demo
 qt_add_qml_module(appqt6-i18n-demo
     URI qt6-i18n-demo
     VERSION 1.0
-    QML_FILES main.qml
+    QML_FILES main.qml Qmli18n.qml
     SOURCES htmldocumentitem.h htmldocumentitem.cpp
+    SOURCES languagemanager.h languagemanager.cpp
+)
+
+qt6_add_translations(appqt6-i18n-demo
+    TS_FILES
+    i18n/base.ts
+    i18n/qml_en.ts
+    i18n/qml_en_AU.ts
+    i18n/qml_zh.ts
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.

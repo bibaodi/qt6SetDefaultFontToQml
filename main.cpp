@@ -6,17 +6,25 @@
 #endif
 #include "htmldocumentitem.h"
 
+#include "languagemanager.h"
 #include <QFont>
 #include <QLocale>
+#include <QQmlContext>
 #include <QTranslator>
 
 int main(int argc, char *argv[]) {
   QGuiApplication app(argc, argv);
   qmlRegisterType<HtmlDocumentItem>("CustomItems", 1, 0, "HtmlDocumentItem");
+  qmlRegisterType<LanguageManager>("LanguageManager", 1, 0, "LanguageManagerItem");
 
   qDebug() << "default: family:" << app.font().family() << ",d:" << app.font().defaultFamily();
-  QFont font("Source Han Sans CN");
-  // app.setFont(font);
+  const QFont font("Source Han Sans CN");
+  app.setFont(font);
+  if (0 == font.family().compare(QGuiApplication::font().family())) {
+    qDebug() << "set font success";
+  } else {
+    qDebug() << "set font failed";
+  }
   qDebug() << "2default family:" << app.font().family() << ",d:" << app.font().defaultFamily();
 
   QTranslator translator;
@@ -30,6 +38,8 @@ int main(int argc, char *argv[]) {
   }
 
   QQmlApplicationEngine engine;
+  LanguageManager languageManager(&engine);
+  engine.rootContext()->setContextProperty("languageManager", &languageManager);
   const QUrl url(QStringLiteral("qrc:/qt6-i18n-demo/main.qml"));
   QObject::connect(
       &engine, &QQmlApplicationEngine::objectCreated, &app,

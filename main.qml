@@ -1,5 +1,7 @@
 import QtQuick
 import CustomItems 1.0
+import QtQuick.Controls
+//import "./Qml-i18n.qml" as QLang
 
 Window {
     width: 640
@@ -50,5 +52,9 @@ Window {
 <span style=\"font-size: 30px;\">99234</span>mm
 </p>
 "
+    }
+
+    Qmli18n {
+        id: id_trans
     }
 }
