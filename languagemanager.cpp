@@ -21,8 +21,8 @@ void LanguageManager::changeLanguage(const QString &locale, const QString &trans
     qDebug() << "translator:" << translator.language();
     bool ret = qApp->installTranslator(&translator);
     qDebug() << "installTranslator=" << ret;
-    m_engine->retranslate();
   }
+  m_engine->retranslate(); // if not found the new ts file, apply to default.--eton@250327
 
   // Emit a signal to update the QML UI
   // emit languageChanged(locale, translationFile);
