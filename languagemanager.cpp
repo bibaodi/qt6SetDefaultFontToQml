@@ -10,12 +10,13 @@ void LanguageManager::changeLanguage(const QString &locale, const QString &trans
   // Set the new locale
   QLocale regionlocal = QLocale(locale);
   QLocale::setDefault(regionlocal);
-  qDebug() << "local Name=" << regionlocal.name();
+  qDebug() << "local Name=" << regionlocal.name() << ", translationFile=" << translationFile;
 
+  QString translationFpath = ":i18n/i18n/" + translationFile;
   // Load the new translation file
   QTranslator translator;
-  if (false == translator.load(translationFile)) {
-    qDebug() << "local file Err: Name=" << translationFile;
+  if (false == translator.load(translationFpath)) {
+    qDebug() << "local file Err: Name=" << translationFpath;
   } else {
     qDebug() << "translator:" << translator.language();
     bool ret = qApp->installTranslator(&translator);
