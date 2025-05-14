@@ -2,7 +2,7 @@
 - eton@241224 init the demo for font in qt;
 - eton@241231 add HtmlDocumentItem for demonstrate the `QTextDocument`;
 - eton@250514 try resolve text load by loader not translated error, not work.
-- eton@250514 junchong suggest 'change `QTranslator translator;` to long life cycle varibale', I change it to static, it works.
+- eton@250514 junchong suggest 'change `QTranslator translator;` to long life cycle varibale', I change it to static, it works, and the **translator is the key**.
 
 ## Contents
 if the font file in system wide path, then direct set is valid, otherwise follow steps:
@@ -28,6 +28,12 @@ if the font file in system wide path, then direct set is valid, otherwise follow
 
 - ![set](./result-images/Font-set-result.png)
 - ![noset](./result-images/Font-noset-result.png)
+
+
+## Infos
+`m_engine->setUiLanguage(locale);` 有用的原因是因为这会自动安装cmake生成的qm文件。
+> Applications reload translations when the QJSEngine::uiLanguage or Qt.uiLanguage property value changes. The following code snippet changes the language dynamically when the user clicks the button:
+[Writing Source Code for Translation | Qt 6.8](https://doc.qt.io/qt-6.8/zh/i18n-source-translation.html#qml-use-qqmlapplicationengine "Click to open https://doc.qt.io/qt-6.8/zh/i18n-source-translation.html#qml-use-qqmlapplicationengine")
 
 ## Refs:
 ref:[Embedding Fonts in Your Qt Application](https://amin-ahmadi.com/2016/01/07/embedding-fonts-in-your-qt-app/)
