@@ -13,6 +13,12 @@ if the font file in system wide path, then direct set is valid, otherwise follow
 
 5. done;
 
+## update translates
+```
+~/Qt/6.5.3/gcc_64/bin/lupdate -recursive ./ -target-language zh_CN -ts i18n/
+~/Qt/6.5.3/gcc_64/bin/linguist ./i18n/qml_zh.ts
+```
+
 ## Env:
 - qt6.5;
 - debian12;
