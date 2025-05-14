@@ -1,6 +1,7 @@
 # apply customer font in Qt6
 - eton@241224 init the demo for font in qt;
 - eton@241231 add HtmlDocumentItem for demonstrate the `QTextDocument`;
+- eton@250514 try resolve text load by loader not translated error, not work.
 
 ## Contents
 if the font file in system wide path, then direct set is valid, otherwise follow steps:
