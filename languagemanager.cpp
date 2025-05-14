@@ -20,10 +20,11 @@ void LanguageManager::changeLanguage(const QString &locale, const QString &trans
   } else {
     qDebug() << "translator:" << translator.language();
     bool ret = qApp->installTranslator(&translator);
-    qDebug() << "installTranslator=" << ret;
+    m_engine->setUiLanguage(locale); // this will fix text in loader not translated(tks tang junchong).--eton@250513
+    qDebug() << "installTranslator=" << ret << ", uilanguage=" << m_engine->uiLanguage();
   }
-  m_engine->setUiLanguage(locale); // this will fix text in loader not translated(tks tang junchong).--eton@250513
-  m_engine->retranslate();         // if not found the new ts file, apply to default.--eton@250327
+
+  m_engine->retranslate(); // if not found the new ts file, apply to default.--eton@250327
 
   // Emit a signal to update the QML UI
   // emit languageChanged(locale, translationFile);
