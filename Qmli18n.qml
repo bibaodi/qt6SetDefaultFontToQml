@@ -30,6 +30,7 @@ Rectangle {
             text: qsTr("English")
             onClicked: {
                 languageManager.changeLanguage("en_US", "qml_en_AU.qm")
+                id_loader.source="LangItem4Loader.qml"
             }
         }
 
@@ -38,13 +39,35 @@ Rectangle {
             text: qsTr("id-French")
             onClicked: {
                 languageManager.changeLanguage("fr_FR", "qml_fr.qm")
+                id_loader.source=""
             }
         }
         Button {
             text: qsTr("yuyan")
             onClicked: {
                 languageManager.changeLanguage("zh_CN", "qml_zh.qm")
+                console.log("after click Locale:", Qt.locale().name)
+                id_loader.source="LangItem4Loader.qml"
             }
+        }
+    }
+    Loader{
+        id: id_loader
+        source: ""
+        // This signal is emitted when the component starts loading
+        Component.onCompleted: {
+            console.log("Loader Component.onCompleted:Dynamic component loading started.")
+        }
+
+        // This signal is emitted when the component has been fully loaded
+        onLoaded: {
+            console.log("Loader onLoaded:Dynamic component loaded successfully.")
+        }
+        onStatusChanged: {
+            if (id_loader.status === Loader.Error) {
+                console.error("Loader-status:", id_loader.status, "::",id_loader.errorString)
+            }
+            console.error("Loader-status:", id_loader.status, "::",Qt.locale().name)
         }
     }
 }

@@ -57,4 +57,5 @@ Window {
     Qmli18n {
         id: id_trans
     }
+
 }

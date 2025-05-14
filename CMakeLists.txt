@@ -15,7 +15,7 @@ qt_add_executable(appqt6-i18n-demo
 qt_add_qml_module(appqt6-i18n-demo
     URI qt6-i18n-demo
     VERSION 1.0
-    QML_FILES main.qml Qmli18n.qml
+    QML_FILES main.qml Qmli18n.qml LangItem4Loader.qml
     SOURCES htmldocumentitem.h htmldocumentitem.cpp
     SOURCES languagemanager.h languagemanager.cpp
 )
