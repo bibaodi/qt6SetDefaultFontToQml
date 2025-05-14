@@ -2,6 +2,7 @@
 - eton@241224 init the demo for font in qt;
 - eton@241231 add HtmlDocumentItem for demonstrate the `QTextDocument`;
 - eton@250514 try resolve text load by loader not translated error, not work.
+- eton@250514 junchong suggest 'change `QTranslator translator;` to long life cycle varibale', I change it to static, it works.
 
 ## Contents
 if the font file in system wide path, then direct set is valid, otherwise follow steps:
