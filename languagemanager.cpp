@@ -14,13 +14,15 @@ void LanguageManager::changeLanguage(const QString &locale, const QString &trans
 
   QString translationFpath = ":i18n/i18n/" + translationFile;
   // Load the new translation file
-  QTranslator translator;
+  static QTranslator translator; // make translator keep in memory will fix text in loader not translated(tks tang
+                                 // junchong).--eton@250513
   if (false == translator.load(translationFpath)) {
     qDebug() << "local file Err: Name=" << translationFpath;
   } else {
     qDebug() << "translator:" << translator.language();
     bool ret = qApp->installTranslator(&translator);
-    m_engine->setUiLanguage(locale); // this will fix text in loader not translated(tks tang junchong).--eton@250513
+    m_engine->setUiLanguage(
+        locale); // this will fix text in loader not translated(tks tang junchong), not work.--eton@250513
     qDebug() << "installTranslator=" << ret << ", uilanguage=" << m_engine->uiLanguage();
   }
 
