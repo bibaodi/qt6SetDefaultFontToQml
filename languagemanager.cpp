@@ -21,8 +21,11 @@ void LanguageManager::changeLanguage(const QString &locale, const QString &trans
   } else {
     qDebug() << "translator:" << translator.language();
     bool ret = qApp->installTranslator(&translator);
-    m_engine->setUiLanguage(
-        locale); // this will fix text in loader not translated(tks tang junchong), not work.--eton@250513
+#if 0
+    m_engine->setUiLanguage(locale);
+    // this will fix text in loader not translated(tks tang junchong), not work.
+    // if change translator to static, it works, so comment this.--eton@250513
+#endif
     qDebug() << "installTranslator=" << ret << ", uilanguage=" << m_engine->uiLanguage();
   }
 
