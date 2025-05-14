@@ -28,7 +28,7 @@ int main(int argc, char *argv[]) {
     qDebug() << "set font failed";
   }
   qDebug() << "2default family:" << app.font().family() << ",d:" << app.font().defaultFamily();
-
+#if 0
   QTranslator translator;
   const QStringList uiLanguages = QLocale::system().uiLanguages();
   qDebug() << "uiLanguages=" << uiLanguages;
@@ -40,7 +40,7 @@ int main(int argc, char *argv[]) {
       qDebug() << translator.language() << "::installTranslator=" << ret;
     }
   }
-
+#endif
   QQmlApplicationEngine engine;
   LanguageManager languageManager(&engine);
   engine.rootContext()->setContextProperty("languageManager", &languageManager);

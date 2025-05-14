@@ -4,10 +4,18 @@
 <context>
     <name>LangItem4Loader</name>
     <message>
-        <location filename="../build/Desktop_Qt_6_5_3_GCC_64bit-Debug/qt6-i18n-demo/LangItem4Loader.qml" line="12"/>
-        <location filename="../LangItem4Loader.qml" line="12"/>
+        <location filename="../build/Desktop_Qt_6_5_3_GCC_64bit-Debug/qt6-i18n-demo/LangItem4Loader.qml" line="14"/>
+        <location filename="../LangItem4Loader.qml" line="14"/>
+        <location filename="../languagemanager.cpp" line="14"/>
+        <location filename="../languagemanager.cpp" line="27"/>
         <source>HelloLoader</source>
         <translation>你好加载岂</translation>
+    </message>
+    <message>
+        <location filename="../build/Desktop_Qt_6_5_3_GCC_64bit-Debug/qt6-i18n-demo/LangItem4Loader.qml" line="14"/>
+        <location filename="../LangItem4Loader.qml" line="14"/>
+        <source>HelloLoaderValue</source>
+        <translation>你好222加载</translation>
     </message>
 </context>
 <context>
@@ -37,31 +45,36 @@
     <name>Qmli18n</name>
     <message>
         <location filename="../build/Desktop_Qt_6_5_3_GCC_64bit-Debug/qt6-i18n-demo/Qmli18n.qml" line="24"/>
-        <location filename="../Qmli18n.qml" line="24"/>
+        <location filename="../Qmli18n.qml" line="26"/>
         <source>Hello</source>
         <translatorcomment>你好</translatorcomment>
         <translation>你好</translation>
     </message>
     <message>
         <location filename="../build/Desktop_Qt_6_5_3_GCC_64bit-Debug/qt6-i18n-demo/Qmli18n.qml" line="30"/>
-        <location filename="../Qmli18n.qml" line="30"/>
+        <location filename="../Qmli18n.qml" line="32"/>
         <source>English</source>
         <translatorcomment>英语</translatorcomment>
         <translation>英语</translation>
     </message>
     <message>
         <location filename="../build/Desktop_Qt_6_5_3_GCC_64bit-Debug/qt6-i18n-demo/Qmli18n.qml" line="39"/>
-        <location filename="../Qmli18n.qml" line="39"/>
+        <location filename="../Qmli18n.qml" line="41"/>
         <source>id-French</source>
         <translatorcomment>法语</translatorcomment>
         <translation>法语</translation>
     </message>
     <message>
         <location filename="../build/Desktop_Qt_6_5_3_GCC_64bit-Debug/qt6-i18n-demo/Qmli18n.qml" line="46"/>
-        <location filename="../Qmli18n.qml" line="46"/>
+        <location filename="../Qmli18n.qml" line="49"/>
         <source>yuyan</source>
         <translatorcomment>语言</translatorcomment>
         <translation>语言</translation>
+    </message>
+    <message>
+        <location filename="../Qmli18n.qml" line="41"/>
+        <source>id2-French</source>
+        <translation>法22语</translation>
     </message>
 </context>
 <context>

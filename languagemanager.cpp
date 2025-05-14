@@ -10,7 +10,10 @@ void LanguageManager::changeLanguage(const QString &locale, const QString &trans
   // Set the new locale
   QLocale regionlocal = QLocale(locale);
   QLocale::setDefault(regionlocal);
-  qDebug() << "local Name=" << regionlocal.name() << ", translationFile=" << translationFile;
+  qDebug() << "local Name=" << regionlocal.name() << ", translationFile=" << translationFile
+           << ",beforeInstall:trHelloLoader=" << qApp->translate("LangItem4Loader", "HelloLoader")
+           << "(if translator lifecyle not critical, this value should keep until next change, but when translator is "
+              "scope variable, it change to default.)";
 
   QString translationFpath = ":i18n/i18n/" + translationFile;
   // Load the new translation file
@@ -21,12 +24,14 @@ void LanguageManager::changeLanguage(const QString &locale, const QString &trans
   } else {
     qDebug() << "translator:" << translator.language();
     bool ret = qApp->installTranslator(&translator);
+    QString trHelloLoader = qApp->translate("LangItem4Loader", "HelloLoader");
 #if 0
-    m_engine->setUiLanguage(locale);
+    m_engine->setUiLanguage(locale); //this will lead to qt auto install .qm file if cmake make it in available path, then it will implict installed.--eton@250514
     // this will fix text in loader not translated(tks tang junchong), not work.
     // if change translator to static, it works, so comment this.--eton@250513
 #endif
-    qDebug() << "installTranslator=" << ret << ", uilanguage=" << m_engine->uiLanguage();
+    qDebug() << "installTranslator=" << ret << ", uilanguage=" << m_engine->uiLanguage()
+             << ",trHelloLoader=" << trHelloLoader;
   }
 
   m_engine->retranslate(); // if not found the new ts file, apply to default.--eton@250327

@@ -8,6 +8,8 @@ Rectangle {
     visible: true
     width: 200
     height: 100
+    property  int var001: 0
+    id: id_i18nRoot
 
     Column {
         anchors.fill: parent
@@ -36,10 +38,11 @@ Rectangle {
 
         Button {
             //% "text-ID-based for id-French"
-            text: qsTr("id-French")
+            text: id_i18nRoot.var001 >0 ?qsTr("id-French"):qsTr("id2-French")
             onClicked: {
-                languageManager.changeLanguage("fr_FR", "qml_fr.qm")
+                //languageManager.changeLanguage("fr_FR", "qml_fr.qm")
                 id_loader.source=""
+                id_i18nRoot.var001=3
             }
         }
         Button {
@@ -48,6 +51,7 @@ Rectangle {
                 languageManager.changeLanguage("zh_CN", "qml_zh.qm")
                 console.log("after click Locale:", Qt.locale().name)
                 id_loader.source="LangItem4Loader.qml"
+                id_i18nRoot.var001=0
             }
         }
     }
